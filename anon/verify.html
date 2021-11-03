@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php include 'head.html>';?>
+<body>
+    <div id="wrapper">
+        <?php include 'topNav.html';?>
+        <!-- /. NAV TOP  -->
+        <?php include 'sideNav.html';?>
+        <!-- /. SIDEBAR MENU (navbar-side) -->
+        <div id="page-wrapper" class="page-wrapper-cls">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                Verify Email
+                            </div>
+                            <div class="panel-body" id="panel1">
+                                <div id="step1">
+                                    <form name='verifyForm' method='post'>
+                                       <p>Verification Code:<input type="text" class="form-control" name='code' placeholder="Verification Code"/></p>
+                                       <button class="btn btn-primary btn-lg">Verify</button>
+                                   </form>
+                                   <p>OR</p>
+                                   <a href=".">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!---- Modal------>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModal">Close</button>
+                                            <button type="button" class="btn btn-primary" id='btnOther'>Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <!------>
+                </div>
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <footer >
+        <!-- &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a> -->
+    </footer>
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="jquery-3.2.0.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    <script src="verify.js"></script>
+
+
+</body>
+</html>

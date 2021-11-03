@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php include 'head.html>';?>
+<body>
+    <div id="wrapper">
+        <?php include 'topNav.html';?>
+        <!-- /. NAV TOP  -->
+        <?php if(isset($_SESSION['loggedIn'])): ?>
+                <?php include 'userSideNav.html';?>
+        <?php else:?>
+                <?php include 'sideNav.html';?>
+        <?php endif;?>
+        <!-- /. SIDEBAR MENU (navbar-side) -->
+        <div id="page-wrapper" class="page-wrapper-cls">
+            <div id="page-inner">
+                <!--<?php include 'banner.html';?> -->
+                <!-- ////Row1 -->
+                <div class="row">
+                    <a href="#reward">
+                      <div class=" col-md-4 col-sm-4">
+                        <div class="style-box-one Style-one-clr-three">
+                            <a href="#reward">
+                                <span><img src="assets/svgs/regular/money-bill-alt.svg" alt="" width="40px"/></span>
+                                <h5>Reward Whistle Blowers</h5>
+                            </a>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#safe">
+                        <div class=" col-md-4 col-sm-4">
+                            <div class="style-box-one Style-one-clr-two">
+                                <a href="#safe">
+                                    <span><img src="assets/svgs/solid/user-shield.svg" alt="" width="40px"/></span>
+                                    <h5>Safety of Whistleblowers</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#easy">
+                        <div class=" col-md-4 col-sm-4">
+                            <div class="style-box-one Style-one-clr-four">
+                                <a href="#easy">
+                                    <span><img src="assets/svgs/solid/umbrella.svg" alt="" width="40px"/></span>
+                                    <h5>Easy-to-Use</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!--  -->
+                <!--//// Row 2///-->
+                <div class="row">
+                  <div class="col-md-12">
+                      <br />
+                           <div class="media">
+                              <div class="col-md-12" style="padding-bottom: 10px" id='reward'>
+                                  <span class="media-left">
+                                        <img src="assets/img/reward.jpeg" alt="Reward" class="img-rounded media-left" width="120px" height="120px"/>
+                                  </span>
+                                  <div class="media-body">
+                                        <h4 class="media-heading">Rewarding Whistleblowers</h4>
+                                        Flip.com Rewards Whistleblowers with Cryptocurrency. Whistleblowers get paid when visitors and other users pay to download media contents of his report.
+                                        Payment is direct and Immediate.Whistleblowers recieve payment as many times as people download their credible media evidences! Payment is safe and secured!
+                                  </div>
+                              </div>
+
+                              <div class="col-md-12" style="padding-bottom: 10px" id='safe'>
+                                  <span class="media-left">
+                                        <img src="assets/img/anonymous.png" alt="Safe" class="img-rounded media-left" width="120px" height="120px"/>
+                                  </span>
+                                  <div class="media-body">
+                                        <h4 class="media-heading">Safe and Anonymity</h4>
+                                        The Safety of Whistleblowers is our Priority! We do not collect personal biodata of our Users nor their location. Flip.com provides visiblity to corrupt practices by spotlighting corrupt officials while keeping the whistleblower anonymous and safe. The Identity of all users (Whistleblowers/Vetters) on the platform are unknown and safe.
+                                  </div>
+                              </div>
+
+                              <div class="col-md-12" style="padding-bottom: 10px" id='easy'>
+                                  <span class="media-left">
+                                        <img src="assets/img/relaible.png" alt="Safe" class="img-rounded media-left" width="120px" height="120px"/>
+                                  </span>
+                                  <div class="media-body">
+                                        <h4 class="media-heading">Easy to Use</h4>
+                                        FLIP.com is easy to Use. Ths SignUp process is easy and quick. We focus on turning the spotlight on corrupt officials and directly remunerating
+                                        whistleblowers while reducing the ambiguity of whistleblowing to the barest possible and
+                                        ensuring the safety of the reporter by keeping him anonymous.
+                                  </div>
+                              </div>
+
+                      </div>
+
+
+                  </div>
+
+                </div>
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <footer >
+        <!-- &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a> -->
+    </footer>
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="jquery-3.2.0.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    <?php if(isset($_SESSION['loggedIn'])): ?>
+          <script src="main.js"></script>
+    <?php else:?>
+        <script src="main2.js"></script>
+    <?php endif;?>
+
+
+
+</body>
+</html>

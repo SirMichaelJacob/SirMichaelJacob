@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php include 'head.html>';?>
+<body>
+    <div id="wrapper">
+        <?php include 'topNav.html';?>
+        <!-- /. NAV TOP  -->
+        <?php if(isset($_SESSION['loggedIn'])): ?>
+                <?php include 'userSideNav.html';?>
+        <?php else:?>
+                <?php include 'sideNav.html';?>
+        <?php endif;?>
+        <!-- /. SIDEBAR MENU (navbar-side) -->
+        <div id="page-wrapper" class="page-wrapper-cls">
+            <div id="page-inner">
+                <!--<?php include 'banner.html';?> -->
+             <div class="row">
+               <div class="col-md-12">
+                   <?php include 'datatable2.html';?>
+               </div>
+               <div class="col-md-12">
+               <?php if(isset($GLOBALS['reporter']) and !empty($GLOBALS['reporter'])):?>
+                   <?php
+                     try
+                     {
+                       $sql = "SELECT reports.id, title, description, username from user inner join reports where user.username=:username and reports.title=:title";
+                        $s= $GLOBALS['pdo']->prepare($sql);
+                        $s->bindValue(':title',htmlText($_GET['search']));
+                        $s->bindValue(':username',htmlText(strtoupper($GLOBALS['reporter'])));
+                        $s->execute();
+                     }
+                     catch(PDOException $e)
+                     {
+
+                     }
+                     $row=$s->fetch();
+                     $rId = $row[0];
+                     $title = $row[1];
+                     $desc = $row[2];
+                     $user = $row[3];
+                   ?>
+               <?php if(!empty($rId)):?>
+
+                <!---- Modal------>
+                        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Vet Report</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                           <label><i>About:</i></label>
+                                           <p id="t"><?php display($title);?></p>
+                                           <label><i>Allegation:</i></label>
+                                           <p style='Color:red; font-weight: lighter'><?php display($desc);?></p>
+                                           <label><i>Reporter:</i></label>
+                                           <p style='Color:green; font-weight: lighter' id='rep'><?php display($user);?></p>
+                                           <a href="?rcase=<?php display($title);?>&rep=<?php display($user);?>" id="link"></a>
+                                           <button id="btnCopy">Click to Copy Link and Share on Social Media</button>
+                                           <div>
+                                             <img src=<?php display("confidential/$rId.jpg");?> width="80px" height="100px" id='rImg'>
+                                           </div>
+                                           <?php if(!isset($_SESSION['loggedIn'])): ?>
+                                                <form name= 'refForm' method='post'>
+                                                   <p><input type='email' name ="vetEmail" id="vetEmail" class="form-control" placeholder = "Enter your Email" name="vetEmail"></p>
+                                                </form>
+                                           <?php endif;?>
+                                           <div class="form-group has-success" style="display: flex; justify-content: center">
+                                                   <button name='btnVet' id="btnVet" class= "btn btn-primary btn-lg" >Confirm</button>
+                                           </div>
+
+                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModal">Close</button>
+                                            <!--<button type="button" class="btn btn-primary" id='btnOther'>Save Changes</button>-->
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+               <!------>
+               <?php elseif(empty($rId)):?>
+                   <!---- Modal------>
+                        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Notification</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                           <p>Report does not Exist</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+               <!------>
+               <?php endif;?>
+               <?php else:?>
+
+               <!---- Modal------>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModal">Close</button>
+                                            <button type="button" class="btn btn-primary" id='btnOther'>Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+               <!------>
+
+               <?php endif;?>
+               <!---- Modal------>
+                        <div class="modal fade" id="picModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClosePicModal">Close</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+               <!------>
+               </div>
+             </div>
+
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <footer >
+        <!-- &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a> -->
+    </footer>
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="jquery-3.2.0.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/sorttable.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <?php if(isset($_SESSION['loggedIn'])): ?>
+          <script src="main.js"></script>
+          <?php if(isset($GLOBALS['reporter']) and !empty($GLOBALS['reporter'])):?>
+            <script src="mainMini.js"></script>
+          <?php endif;?>
+    <?php else:?>
+        <script src="main3.js"></script>
+        <?php if(isset($GLOBALS['reporter']) and !empty($GLOBALS['reporter'])):?>
+            <script src="mainMini2.js"></script>
+        <?php endif;?>
+        <!--<script src="mainMini2.js"></script> -->
+    <?php endif;?>
+
+
+
+
+
+</body>
+</html>

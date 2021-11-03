@@ -1,0 +1,26 @@
+<nav  class="navbar-default navbar-side" role="navigation" id="menuClose">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                            <img src="assets/img/user.jpg" class="img-circle" />
+
+
+                        </div>
+
+                    </li>
+                     <li>
+                         <?php if(isset($_SESSION['loggedIn'])): ?>
+                        <a  href="."> <strong> <?php display(findUsername($_SESSION['flipemail']));?> </strong></a>
+                        <?php endif;?>
+                    </li>
+
+                    <li>
+                        <a   href="?about"><img src="assets/svgs/solid/info.svg" width='15px' height='15px' alt="Gem photo" /> About Flip.com</a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+</nav>

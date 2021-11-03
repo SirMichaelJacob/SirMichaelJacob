@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+  <title>Untitled</title>
+</head>
+
+<body>
+    <div>
+        <label id="message" style="color:red"></label>
+    </div>
+     <div id="step1">
+        <form name='regForm' method='post' >
+           <p><input type='text' name='username' placeholder='Choose a unique username' required><img src="checked.png" name="checkusername" width="20" height="20"></p>
+           <p><input type='email' name='email' placeholder='Enter your email Address' required><img src="checked.png" name="checkemail" width="20" height="20"></p>
+           <p><button type="submit">Next>></button></p>
+        </form>
+    </div>
+    <div id="step2">
+        <form name='verifyForm' method='post' >
+           <p><input type='text' name='vCode' placeholder='Enter the Verification code Sent to your email' required></p>
+           <p><button type="submit">Verify</button></p>
+        </form>
+    </div>
+    <script src='main.js'></script>
+    <script src="jquery-3.2.0.js"></script>
+</body>
+
+</html>

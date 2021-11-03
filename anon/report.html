@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php include 'head.html>';?>
+<body>
+    <div id="wrapper">
+        <?php include 'topNav.html';?>
+        <!-- /. NAV TOP  -->
+            <?php if(isset($_SESSION['loggedIn'])): ?>
+                <?php include 'userSideNav.html';?>
+            <?php else:?>
+                <?php include 'sideNav.html';?>
+            <?php endif;?>
+        <!-- /. SIDEBAR MENU (navbar-side) -->
+        <div id="page-wrapper" class="page-wrapper-cls">
+            <div id="page-inner">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form name='reportForm' method='post' enctype="multipart/form-data">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                Quick Report
+                            </div>
+                            <div class="panel-body" id="panel1">
+
+                                    <div class="col-md-6">
+                                        <p>About:<input type="text" class="form-control" id="success"  name='title' placeholder="Who are you reporting" required/></p>
+                                        <p>Description:<textarea type="text" class="form-control" id="success"  name='desc' placeholder="Describe offence" required></textarea></p>
+
+                                    </div>
+                                   <div class="col-md-6">
+                                        <img width='80%' height='100%' src="assets/img/2.jpg" name='preview'>
+                                        <p><input type='file' name='evidence' accept=".png,.jpg,.mp3,.mp4,.3gp" required></p>
+                                   </div>
+
+
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-lg">Submit</button>
+                        <input type="hidden"  name='action' value='send'/>
+                        </form>
+                    </div>
+                    <!---- Modal------>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <!------>
+                </div>
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <footer >
+        <!-- &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a> -->
+    </footer>
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="jquery-3.2.0.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    <!--<script src="main.js"></script>-->
+    <script src="rep.js"></script>
+
+
+</body>
+</html>

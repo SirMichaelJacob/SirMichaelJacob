@@ -1,0 +1,69 @@
+<!--    Hover Rows  -->
+                    <div class="alert alert-info">
+                            <!-- <strong><a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap.Com</a></strong>  -->
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Search Reports
+                            <form name='searchForm' method='get'>
+                                <input type="text" class="form-control" id="success"  name='search' placeholder="Enter Report details"/>
+                                <button class="btn-default btn-success btn-sm">Search</button>
+                            </form>
+                        </div>
+                        <div class="panel-body">
+                            <?php
+                            $uReports = getUserReports(getUserId($_SESSION['flipemail'])); 
+                            if(isset($uReports) and count($uReports)>0):?>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover sortable">
+                                    <thead>
+                                        <tr>
+                                            <th>About</th>
+                                            <th>Description</th>
+                                            <th>Reporter</th>
+                                            <th>Vets</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+
+                                        foreach($uReports as $report):?>
+                                        <?php if(!empty($report['title']) or !empty($report['desc'])):?>
+                                        <tr class='reportItem'>
+                                                <td name='title'><?php display($report['title']);?></td>
+                                                <td name='desc'>
+                                                    <?php display(cutText($report['desc'],100));?>
+
+                                                </td>
+                                                <td name='username'>
+                                                    <?php display(strtolower($report['userId']));?>
+                                                </td>
+                                                <td>
+                                                   <?php display(countVets(getReportId($report['title'],findUserId($report['userId']))));?>
+                                                </td>
+                                                <td><?php if($report['status']=='verified')
+                                                    {
+                                                        echo "<img src='assets/img/flip-verified.png' width='40px' height='40px'>";
+                                                    }
+                                                    else{
+                                                      echo "<img src='assets/img/flip-unverified.png' width='40px' height='40px'>";
+                                                    }
+                                                ;?>
+                                                </td>
+
+                                                <input type='hidden' name='fullDetails' value = "<?php echo strtolower($report['desc']);?>" />
+                                                <input type='hidden' name='ids' value = "<?php echo $report['id'];?>" />
+                                        </tr>
+                                        <?php endif;?>
+                                        <?php endforeach;?>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php endif;?>
+                        </div>
+                    </div>
+                    <!-- End  Hover Rows  -->

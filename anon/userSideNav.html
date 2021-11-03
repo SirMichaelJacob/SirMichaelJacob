@@ -1,0 +1,39 @@
+<nav  class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                            <img src="assets/img/user.jpg" class="img-circle" />
+                        </div>
+
+                    </li>
+                     <li>
+                        <a  href="."> <strong> <?php display(findUsername($_SESSION['flipemail']));?> </strong></a>
+                    </li>
+
+                    <li>
+                        <a   href="?search"><img src="assets/svgs/solid/globe-africa.svg" width='15px' height='20px' alt="Gem photo" /> Public Reports</a>
+                    </li>
+                    <li>
+                        <a href="?reports"><img src="assets/svgs/solid/user-secret.svg" width='15px' height='20px' alt="Gem photo" /> My Reports</a>
+
+                    </li>
+
+                    <li>
+                        <a href="."><img src="assets/svgs/solid/adjust.svg" width='15px' height='20px' alt="Gem photo" /> Settings</a>
+
+                    </li>
+                    <li>
+                        <a   href="?about"><img src="assets/svgs/solid/info.svg" width='15px' height='15px' alt="Gem photo" /> About Flip.com</a>
+                    </li>
+
+                    <li>
+                       <form action="." method="post">
+                            <button class="btn btn-default" name='logout'><i class=" fa fa-sign-out "></i> Logout</button>
+                       </form>
+                    </li>
+
+                </ul>
+            </div>
+
+        </nav>

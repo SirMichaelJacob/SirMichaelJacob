@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php include 'head.html>';?>
+<body>
+    <div id="wrapper">
+        <?php include 'topNav.html';?>
+        <!-- /. NAV TOP  -->
+        <?php if(isset($_SESSION['loggedIn'])): ?>
+                <?php include 'userSideNav.html';?>
+        <?php else:?>
+                <?php include 'sideNav.html';?>
+        <?php endif;?>
+        <!-- /. SIDEBAR MENU (navbar-side) -->
+        <div id="page-wrapper" class="page-wrapper-cls">
+            <div id="page-inner">
+                <!--<?php include 'banner.html';?> -->
+
+                <div class="row">
+                    <?php if(isset($_SESSION['loggedIn'])): ?>
+                            <?php include 'userTab.html';?>
+                    <?php else:?>
+                            <div <?php if(isset($_SESSION['loggedIn']))
+                            {
+                               echo "class='col-md-6'";
+                            }
+                            else
+                            {
+                               echo "class='col-md-4'";
+                            }
+                            ?> >
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">Login</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+                                                <div class="panel-heading">
+                                                    Login to Report a Crime
+                                                </div>
+                                                <div class="panel-body" id="panel2">
+                                                    <form name="loginForm" method='post' id='loginForm'>
+                                                           <p>Username:<input type="text" class="form-control" id="success" name='username' placeholder="Enter your unique username"/></p>
+                                                           <p>Email:<input type="text" class="form-control" id="success"  name='email' placeholder="Enter your email address"/></p>
+                                                           <button class="btn btn-primary btn-default">Login</button>
+                                                           <input type="hidden" name="login"/>
+                                                    </form>
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">Register</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" style="height: 0px;">
+                                             <div class="panel  panel-info">
+                                                <div class="panel-heading">
+                                                    Register with just a valid email address
+                                                </div>
+                                                <div class="panel-body" id="panel1">
+                                                    <div id="step1">
+                                                        <form name='regForm' method='post'>
+                                                           <p>Username:<input type="text" class="form-control" id="success"  name='username' placeholder="Enter your unique username"/></p>
+                                                           <p>Email:<input type="text" class="form-control" id="success"  name='email' placeholder="Enter your email address"/></p>
+                                                           <button class="btn btn-success btn-default">Register</button>
+                                                           <input type="hidden" name="register"/>
+                                                       </form>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    <?php endif;?>
+
+
+                    <div <?php if(isset($_SESSION['loggedIn']))
+                            {
+                               echo "class='col-md-6'";
+                            }
+                            else
+                            {
+                               echo "class='col-md-8'";
+                            }
+                            ?>>
+                         <?php include 'datatable.html';?>
+                    </div>
+                    <!---- Modal------>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModal">Close</button>
+                                            <button type="button" class="btn btn-primary" id='btnOther'>Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <!------>
+                    <!---- Modal------>
+                        <div class="modal fade" id="picModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClosePicModal">Close</button>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <!------>
+
+                </div>
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <footer >
+        <!-- &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a> -->
+    </footer>
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="jquery-3.2.0.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    <?php if(isset($_SESSION['loggedIn'])): ?>
+          <script src="main.js"></script>
+    <?php else:?>
+        <script src="main2.js"></script>
+    <?php endif;?>
+
+
+
+</body>
+</html>

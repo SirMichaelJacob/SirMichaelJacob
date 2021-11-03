@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<div class="col-md-6 col-sm-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+           <i class="glyphicon glyphicon-user"></i>
+           Welcome <strong> <?php display(findUsername($_SESSION['flipemail']));?></strong>!
+        </div>
+        <div class="panel-body">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab"><img src="assets/svgs/solid/house-user.svg" width='30px' height='20px' alt="Gem photo" /></a>
+                </li>
+                <li class=""><a href="#cases" data-toggle="tab"><img src="assets/svgs/regular/bell.svg" width='30px' height='20px' alt="Gem photo" /></a>
+                </li>
+                <li class=""><a href="#messages" data-toggle="tab"><img src="assets/svgs/regular/envelope-open.svg" width='30px' height='20px' alt="Gem photo" /></a>
+                </li>
+                <li class=""><a href="#wallet" data-toggle="tab"><img src="assets/svgs/regular/money-bill-alt.svg" width='30px' height='20px' alt="Gem photo" /></a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="home">
+                    <!--///-->
+                    <br>
+                    <p>
+
+                    </p><br>
+                    <p><img src="assets/svgs/regular/gem.svg" width='30px' height='20px' alt="Gem photo" /> You have reported <strong style="color:blue; font-size: 22px"><?php display(countUserReports($_SESSION['flipemail']));?></strong> case.</p>
+                    <p>
+                      <img src="assets/svgs/regular/heart.svg" width='30px' height='20px' alt="Gem photo" style="color: red;"/> You have vetted <strong style="color:green; font-size: 20px"><?php display(countUserVets($_SESSION['flipemail']));?></strong> reports.
+                    </p>
+                     <a href='?report'><button class='btn btn-danger btn-lg'>Report a Case</button></a>
+                    <!--  -->
+                </div>
+                <div class="tab-pane fade" id="cases">
+                    <h4>Cases Tab</h4>
+                    <p></p>
+
+                    <?php include 'datatable3.html';?>
+
+                </div>
+                <div class="tab-pane fade" id="messages">
+                    <h4>Messages Tab</h4>
+                    <p></p>
+                </div>
+                <div class="tab-pane fade" id="wallet">
+                    <h4>Crypto Wallet</h4>
+                    <form>
+                        <p>Etheruem Wallet Address:<input class="form-control" placeholder="Enter Your Etheruem Wallet Address"></p>
+                        <button class='btn btn-success btn-sm'>Update</button>
+                    </form>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
