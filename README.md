@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @SirMichaelJacob
 - 👀 I’m interested in Dart/Flutter, Php, C# and JavaScript
-- 🌱 I’m currently learning Flutter and Blockchain.
+- 🌱 I’m proficient in MVC web Applications using Laravel framework.
 - 💞️ I’m looking to collaborate on all the above.
 - 📫 How to reach me via email: sirmichaeljacob@gmail.com
 
