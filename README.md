@@ -1,5 +1,6 @@
 - 👋 Hi, I’m @SirMichaelJacob
-- 👀 I have expertise in the following programming languages Dart, Php, C#, Python and JavaScript
+- 💪 Microsoft Certified Ai Engineer Associate.
+- 🙌 I have expertise in the following programming languages Dart, Php, C#, Python and JavaScript
 - I am experienced in Agile software development methodologies.
 - I am a DevSecOps Engineer.
 - 🌱 I’m proficient in MVC web development architecture using ASP.net and Laravel framework.
